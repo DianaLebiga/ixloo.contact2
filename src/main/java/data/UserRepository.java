@@ -6,7 +6,7 @@ package data;
 public class UserRepository {
     public static User getIxlooUser() {
         return new User("Diana", "Lebiga", "+380988092977", "dianalebiga@gmail.com", "+38098292929",
-                "test street", "Lviv", "Lviv", "10920");
+                "test street", "Lviv11111", "Lviv", "10920");
     }
 
     public static User getIxlooUserWithComment() {
