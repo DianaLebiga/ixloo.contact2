@@ -48,6 +48,8 @@ public class PropertyManager {
                 break;
             }
         }
+
+        LoggerWrapper.getLogger().info("Enviroment" + " " + typeOfUrl.toString());
         return typeOfUrl;
     }
 
