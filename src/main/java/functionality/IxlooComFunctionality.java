@@ -54,7 +54,7 @@ public class IxlooComFunctionality {
     public void checkZipError() {
         contactUsFormPage = new ContactUsFormPage(DriverFactory.getDriver());
         String zipErrorClass = contactUsFormPage.getZipColor();
-        Assert.assertTrue(zipErrorClass.contains("Andrij"), "Zip color is not red!");
+        Assert.assertTrue(zipErrorClass.contains("has-error"), "Zip color is not red!");
     }
 
     //http://diana.ixloo.com/notify

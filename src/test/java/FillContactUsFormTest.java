@@ -1,13 +1,15 @@
 import data.User;
 import data.UserRepository;
 import functionality.IxlooComFunctionality;
+import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import testng.AbstractTestCase;
 
 /**
  * Created by Diana on 03.04.2017.
  */
-public class FillContactUsFormTest {
+public class FillContactUsFormTest extends AbstractTestCase {
 
     private User ixlooUser = UserRepository.getIxlooUser();
     private User ixlooUserWithComment = UserRepository.getIxlooUserWithComment();
@@ -15,10 +17,17 @@ public class FillContactUsFormTest {
 
     private IxlooComFunctionality ixlooComFunctionality;
 
+    public static final Logger LOGGER = Logger.getLogger(FillContactUsFormTest.class);
+
     @BeforeTest
     public void setDriver() {
-        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        //TODO написати свій експлісіт вейт і флуент вейт
+        LOGGER.fatal("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^FATAL log message");
+        LOGGER.error("++++++++++++++++++++++++++++++++++++++++++++++++ERROR log message");
+        LOGGER.warn("*************************************************WARN log message");
+        LOGGER.info("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INFO log message");
+        LOGGER.debug("================================================DEBUG log message");
+        LOGGER.trace("------------------------------------------------TRACE log message");
+
         ixlooComFunctionality = new IxlooComFunctionality();
     }
 
@@ -28,13 +37,13 @@ public class FillContactUsFormTest {
         ixlooComFunctionality.fillContactUs(ixlooUser);
     }
 
-    @Test//(dependsOnMethods = "openBrowser")
+    @Test
     public void allInfo() {
         ixlooComFunctionality.openIxlooAdminPage();
         ixlooComFunctionality.fillContactUsWithComments(ixlooUserWithComment);
     }
 
-    @Test(dependsOnMethods = "allInfo")
+    @Test
     public void negative() {
         ixlooComFunctionality.openIxlooAdminPage();
         ixlooComFunctionality.fillContactUsNegativeTest(ixlooUserNegative);
